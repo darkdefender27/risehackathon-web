@@ -96,6 +96,22 @@
                             </resources>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>copy @angular JS resources</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>src/main/webapp/@angular/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/node_modules/@angular/</directory>
+                                    <include>*.js</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
 
                     <execution>
                         <id>copy typings</id>
@@ -107,7 +123,7 @@
                             <outputDirectory>src/main/webapp/typings/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/typings/</directory>
+                                    <directory>${basedir}/node_modules/typings/</directory>
                                 </resource>
                             </resources>
                         </configuration>

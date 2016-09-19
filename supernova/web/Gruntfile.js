@@ -59,7 +59,12 @@ module.exports = function (grunt) {
                     emitDecoratorMetadata: 'true',
                     module: 'commonjs',
                     sourceMap: false,
-                    failOnTypeErrors: true
+                    failOnTypeErrors: true,
+                    "moduleResolution": "node",
+                    "experimentalDecorators": true,
+                    "removeComments": false,
+                    "noImplicitAny": true,
+                    "suppressImplicitAnyIndexErrors": true
                 }
             }
         },

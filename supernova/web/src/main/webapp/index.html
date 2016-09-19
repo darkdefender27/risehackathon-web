@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>b-genie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Auth0 Lock script -->
+    <script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>
+
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!--    <link href="lib/custom/css/custom_style.css" rel="stylesheet">-->
+
+    <!-- MetisMenu CSS -->
+    <link href="js/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="lib/dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="lib/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="lib/dist/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="lib/dist/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="systemjs/dist/system.src.js"></script>
+    <script>
+        System.config({
+            map: {
+                "angular2-jwt": "angular2-jwt/angular2-jwt",
+                'angular2-highcharts': 'angular2-highcharts/dist/index',
+                'highcharts/highstock.src': 'highcharts/highstock'
+            },
+            packages: {
+                '@angular/common': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/compiler': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/core': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/http': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/platform-browser': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/router': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/router-deprecated': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/testing': { main: 'index.js', defaultExtension: 'js' },
+                '@angular/upgrade': { main: 'index.js', defaultExtension: 'js' },
+                "angular2-jwt": {
+                    "defaultExtension": "js"
+                }
+            },
+            defaultJSExtensions: true
+        });
+    </script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script src="es6-shim/es6-shim.js"></script>
+    <script src="js/require.js"></script>
+    <script src="reflect-metadata/Reflect.js"></script>
+    <script src="zone.js/dist/zone.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu/dist/metisMenu.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+
+</head>
+
+<body style="background-color:#eee;">
+
+
+<my-app>Loading...</my-app>
+<div id ="line-example"></div>
+    <!-- Morris Charts JavaScript -->
+    <script src="js/raphael/raphael-min.js"></script>
+    <script src="js/morrisjs/morris.min.js"></script>
+    <script src="js/morris-data.js"></script>
+
+<script>
+    System.import('build/js/main').catch(console.log.bind(console));
+</script>
+
+</body>
+
+</html>

@@ -4,7 +4,6 @@
   "license": "ISC",
 
   "scripts": {
-    "postinstall": "typings install"
   },
 
   "dependencies": {
