@@ -41,6 +41,7 @@ tmp/
 .idea
 *.iml
 *.ipr
+etc
 
 #################
 ## Netbeans
@@ -207,10 +208,9 @@ npm-debug.log
 # Compiled binary add-ons
 **/bin/
 **/webapp/build
-**/webapp/angular2
 **/webapp/@angular
-**/webapp/angular2-highcharts
-**/webapp/highcharts
+**/webapp/systemjs
+**/webapp/core-js
 
 # Transpiled JS Files
 *.map

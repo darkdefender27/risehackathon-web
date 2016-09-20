@@ -123,7 +123,7 @@
                             <outputDirectory>src/main/webapp/typings/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/node_modules/typings/</directory>
+                                    <directory>${basedir}/typings/</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -189,6 +189,22 @@
                             <resources>
                                 <resource>
                                     <directory>${basedir}/node_modules/systemjs</directory>
+                                    <include>**/*.js</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy core-js</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>src/main/webapp/core-js</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/node_modules/core-js</directory>
                                     <include>**/*.js</include>
                                 </resource>
                             </resources>
