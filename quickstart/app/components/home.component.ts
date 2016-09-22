@@ -1,12 +1,11 @@
 import { Component }  from '@angular/core';
 import { Auth }       from './../services/auth.service';
+import {DashBoardComponent} from "./dashboard.component";
 
 @Component({
   selector: 'home',
-  template: `
-    <h4 *ngIf="auth.authenticated()">You are logged in</h4>
-    <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
-  `
+  templateUrl: './app/templates/home.template.html',
+  providers: [DashBoardComponent]
 })
 
 export class HomeComponent {

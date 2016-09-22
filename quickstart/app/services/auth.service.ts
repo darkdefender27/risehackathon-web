@@ -10,7 +10,7 @@ export class Auth {
   // Configure Auth0
   options = {
     auth: {
-      callbackURL: 'http://localhost:3000/profile',
+      callbackURL: 'http://localhost:3000/',
       responseType: 'token'
     },
     /*additionalSignUpFields: [{
@@ -41,6 +41,8 @@ export class Auth {
         }
         console.log("[DEBUG] User profile retrieved successfully.");
         localStorage.setItem('profile', JSON.stringify(profile));
+        console.log("Profile Information: " + JSON.stringify(profile));
+
         this.userProfile = profile;
       });
 
@@ -65,4 +67,8 @@ export class Auth {
     this.userProfile = undefined;
     console.log("[DEBUG] User successfully logged out.");
   };
+
+  public getUserName(): string {
+    return this.userProfile.name;
+  }
 }

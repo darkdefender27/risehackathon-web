@@ -1,0 +1,26 @@
+<div class="card small sticky-action" *ngIf="auth.authenticated() && auth.userProfile">
+
+  <div class="card-image waves-effect waves-block waves-light">
+    <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+  </div>
+
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">
+      {{auth.userProfile.name}}<i class="material-icons right">more_vert</i>
+    </span>
+    <p><a href="#"> is a link</a></p>
+  </div>
+
+  <div class="card-action">
+    <a href="#">Connect Mobile</a>
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+      {{auth.userProfile.name}}<i class="material-icons right">close</i>
+    </span>
+    <p><strong>Email: </strong> {{auth.userProfile.email}}</p>
+    <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
+  </div>
+
+</div>
