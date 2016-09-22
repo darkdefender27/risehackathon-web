@@ -1,6 +1,5 @@
-================================================
-BCUS Rises Hackathon September 2016 - Aggregator
-================================================
+BCUS Rises Hackathon Sept'16
+============================
 
 ### Empezar
 
