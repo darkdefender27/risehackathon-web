@@ -67,8 +67,4 @@ export class Auth {
     this.userProfile = undefined;
     console.log("[DEBUG] User successfully logged out.");
   };
-
-  public getUserName(): string {
-    return this.userProfile.name;
-  }
 }
