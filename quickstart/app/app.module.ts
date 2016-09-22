@@ -6,12 +6,14 @@ import { AppComponent }  from './components/app.component';
 import { HomeComponent } from './components/home.component';
 import { routing, appRoutingProviders } from './routes/app.routes';
 import { ProfileComponent } from './components/profile.component';
+import { DashBoardComponent } from './components/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    DashBoardComponent
   ],
   providers: [
     appRoutingProviders,

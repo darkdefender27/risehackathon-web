@@ -1,13 +1,24 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
-      <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-      <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-    </div>
-  </div>
-</nav>
+<!--
+<div class="mdl-layout mdl-js-layout">
+-->
 
-<main class="container">
-  <router-outlet></router-outlet>
-</main>
+  <!-- NAVBAR -->
+
+  <nav class="amber darken-4">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Aggregator</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a  (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a></li>
+        <li><a  (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- DASHBOARD -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+
+<!--</div>-->
