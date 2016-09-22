@@ -1,8 +1,8 @@
 import { ModuleWithProviders }         from '@angular/core';
 import { Routes, RouterModule }        from '@angular/router';
 
-import { HomeComponent }               from './home.component';
-import { ProfileComponent }            from './profile.component';
+import { HomeComponent }               from './../components/home.component';
+import { ProfileComponent }            from './../components/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
