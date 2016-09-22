@@ -24,7 +24,7 @@ $ npm start
 
 * Never edit the master branch.
 * Make a branch specific to the feature you wish to contribute on.
-* Send me a pull request.
+* Send us a pull request.
 
 
 ### License
