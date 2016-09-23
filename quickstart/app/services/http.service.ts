@@ -1,6 +1,6 @@
 import { Injectable }    from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
-import { HttpRequestType } from  './http.request.type';
+import { HttpRequestType } from  './../config/http.request.type';
 
 @Injectable()
 export class HttpService {

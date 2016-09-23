@@ -1,6 +1,6 @@
 import { Injectable }    from '@angular/core';
 import { HttpService } from './http.service';
-import { URI } from './uri.config';
+import { URI } from './../config/uri.config';
 
 @Injectable()
 export class SampleService {
