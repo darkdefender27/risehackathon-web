@@ -5,7 +5,7 @@ import {DashBoardComponent} from "./dashboard.component";
 @Component({
   selector: 'home',
   templateUrl: './app/templates/home.template.html',
-  providers: [DashBoardComponent]
+  providers: [ DashBoardComponent ]
 })
 
 export class HomeComponent {

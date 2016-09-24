@@ -1,0 +1,68 @@
+<!-- LOGIN TO YODLEE -->
+
+<div class="card small sticky-action" *ngIf="!linked">
+
+  <div class="card-content">
+
+    <div align="center">
+      <i class="small material-icons">vpn_keyy</i>
+    </div>
+
+    <form class="col s12" #loginForm="ngForm">
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="loginName" type="text" required name="loginName"
+                 [(ngModel)]="userProfile.loginName">
+          <label for="loginName">Login Id</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" required name="password"
+                 [(ngModel)]="userProfile.password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+      <div class="row" align="center">
+        <button align="center" type="button" class="btn waves-effect waves-light"
+                (click)="loginWithYodlee()"
+                [disabled]="!loginForm.form.valid">Submit</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+      Account Name<i class="material-icons right">close</i>
+    </span>
+    <p><strong>Email: </strong> mail@com</p>
+    <p><strong>Nickname: </strong> //}</p>
+  </div>
+
+</div>
+
+<!-- DISPLAY YODLEE ACCOUNT DETAILS -->
+
+<div class="card small sticky-action" *ngIf="linked">
+
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">
+      ACCOUNT<i class="material-icons right">more_vert</i>
+    </span>
+    <p><a href="#"> is a link</a></p>
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+      Account Name<i class="material-icons right">close</i>
+    </span>
+    <p><strong>Email: </strong> mail@com</p>
+    <p><strong>Nickname: </strong> nick_name</p>
+  </div>
+
+</div>

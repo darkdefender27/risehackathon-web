@@ -1,4 +1,4 @@
 export class UserProfile {
-  name: string;
-  email: string;
+  loginName: string;
+  password: string;
 }
