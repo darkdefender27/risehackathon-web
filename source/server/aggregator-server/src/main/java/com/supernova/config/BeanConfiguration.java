@@ -24,7 +24,7 @@ public class BeanConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .antMatcher("*//**")
                 .authorizeRequests()
-                .antMatchers("/greeting**", "/webjars*//**")
+                .antMatchers("/api/**", "/greeting**", "/webjars*//**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
