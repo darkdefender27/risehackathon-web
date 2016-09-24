@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/rest")
+
 @RestController()
 public class HelloweenWebService {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/rest/hello", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HelloweenResponse> hello(@RequestParam(required = false) String message) {
 
         return new ResponseEntity<HelloweenResponse>(
