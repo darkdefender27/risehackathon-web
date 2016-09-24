@@ -1,9 +1,11 @@
 
 <!-- NAVBAR -->
 
-<nav class="amber darken-4">
+<nav class="grey darken-3">
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Aggregator</a>
+    <a href="#!" class="brand-logo center" style="font-family: 'Roboto', 'Helvetica', sans-serif; font-size: medium">
+      Aggregator
+    </a>
     <ul class="right hide-on-med-and-down">
       <li><a  (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a></li>
       <li><a  (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a></li>

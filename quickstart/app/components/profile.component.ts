@@ -1,12 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
 import { Auth } from './../services/auth.service';
-import { Component } from '@angular/core';
+import { YodleeService } from '../services/yodlee.service';
 
 @Component({
   selector: 'profile',
+  providers: [ YodleeService ],
   templateUrl: './app/templates/profile.template.html'
 })
-export class ProfileComponent {
-  constructor(private auth: Auth) {
-    console.log("[DEBUG] Profile component loaded.");
+export class ProfileComponent implements OnInit {
+
+  constructor(private auth: Auth, private yodleeService: YodleeService) {
+  }
+
+  ngOnInit() {
   }
 }

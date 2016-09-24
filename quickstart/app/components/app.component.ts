@@ -10,12 +10,5 @@ import { SampleService } from './../services/sample.service';
 export class AppComponent {
 
   constructor(private auth: Auth, private sampleService: SampleService) {
-    this.sampleService.getSampleMessage()
-      .then((result) => {
-          console.log("Result retrieved: " + JSON.stringify(result));
-      },
-      (error) => {
-        console.log("Error: " + error.status);
-      });
   }
 }
