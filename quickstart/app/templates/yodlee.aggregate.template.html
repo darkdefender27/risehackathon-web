@@ -1,44 +1,55 @@
 <!-- AGGREGATE CARD -->
+<div *ngIf="ready">
 
-<div class="card small">
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Aggregate View</span>
-
-    <!--<div class="container">
-      <div class="row">
-        <div class="col s12">
-          <table class="highlight responsive-table">
-            <thead>
-            <tr>
-              <th data-field="id">Name</th>
-              <th data-field="name">Item Name</th>
-              <th data-field="price">Item Price</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr>
-              <td>Alvin</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>Alan</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>Jonathan</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="col s3">
+    <div class="card small">
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Account: {{ yodleeAccount_1.accountNumber }}<i class="material-icons right">more_vert</i>
+        </span>
+        <p>Account Type: {{ yodleeAccount_1.container }}</p>
+        <p>Account Status: {{ yodleeAccount_1.accountStatus }}</p>
+        <p>Available Cash: $ {{ yodleeAccount_1.availableCash.amount }} </p>
+        <p>Available Credit: $ {{ yodleeAccount_1.availableCredit.amount }} </p>
+        <p>Total Cash Limit: $ {{ yodleeAccount_1.totalCashLimit.amount }} </p>
+        <p>Total Credit Line: $ {{ yodleeAccount_1.totalCreditLine.amount }} </p>
       </div>
-    </div>-->
-
-
-
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Some more info!<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
   </div>
+
+  <div class="col s3">
+    <div class="card small">
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Account: {{ yodleeAccount_2.accountNumber }}<i class="material-icons right">more_vert</i>
+        </span>
+        <p>Account Type: {{ yodleeAccount_2.container }}</p>
+        <p>Account Status: {{ yodleeAccount_2.accountStatus }}</p>
+        <p>Balance: $ {{ yodleeAccount_2.balance.amount }} </p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Some more info!<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s3">
+    <div class="card small">
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Account: {{ yodleeAccount_3.accountNumber }}<i class="material-icons right">more_vert</i>
+        </span>
+        <p>Account Type: {{ yodleeAccount_3.container }}</p>
+        <p>Account Status: {{ yodleeAccount_3.accountStatus }}</p>
+        <p>Available Cash: $ {{ yodleeAccount_3.availableCash.amount }} </p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Some more info!<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
+  </div>
+
 </div>

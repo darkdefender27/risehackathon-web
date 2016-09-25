@@ -17,12 +17,17 @@ export class YodleeAccountAggregator implements OnChanges {
   yodleeAccounts: Array<YodleeAccountDetails>;
   @Input()
   userSession: string;
+  ready: boolean = false;
+
+  yodleeAccount_1: YodleeAccountDetails = new YodleeAccountDetails();
+  yodleeAccount_2: YodleeAccountDetails = new YodleeAccountDetails();
+  yodleeAccount_3: YodleeAccountDetails = new YodleeAccountDetails();
 
   constructor(private yodleeService: YodleeService) {
   }
 
   ngOnChanges() {
-    let headerParams:Headers = new Headers({});
+    let headerParams:Headers = new Headers ({});
     if(this.userSession) {
       headerParams = new Headers({
         'userSession': this.userSession
@@ -31,6 +36,7 @@ export class YodleeAccountAggregator implements OnChanges {
       this.yodleeService.getYodleeAccountDetails(headerParams)
         .then((result) => {
             this.populateAccountDetails(result);
+            this.ready = true;
           },
           (error) => {
             console.log("Error: " + error.status);
@@ -51,27 +57,35 @@ export class YodleeAccountAggregator implements OnChanges {
       yodleeAccount.accountStatus = s.accountStatus;
 
       if(yodleeAccount.container == "creditCard") {
-        let amountDetails: Amount = new Amount();
+        let amountDetails_1: Amount = new Amount();
 
-        amountDetails.amount = s.availableCash.amount;
-        amountDetails.currecncy = s.availableCash.currecncy;
-        yodleeAccount.availableCash = amountDetails;
+        amountDetails_1.amount = s.availableCash.amount;
+        amountDetails_1.currecncy = s.availableCash.currecncy;
+        yodleeAccount.availableCash = amountDetails_1;
 
-        amountDetails.amount = s.availableCredit.amount;
-        amountDetails.currecncy = s.availableCredit.currecncy;
-        yodleeAccount.availableCredit = amountDetails;
+        let amountDetails_2: Amount = new Amount();
 
-        amountDetails.amount = s.balance.amount;
-        amountDetails.currecncy = s.balance.currecncy;
-        yodleeAccount.balance = amountDetails;
+        amountDetails_2.amount = s.balance.amount;
+        amountDetails_2.currecncy = s.balance.currecncy;
+        yodleeAccount.balance = amountDetails_2;
 
-        amountDetails.amount = s.totalCashLimit.amount;
-        amountDetails.currecncy = s.totalCashLimit.currecncy;
-        yodleeAccount.totalCashLimit = amountDetails;
+        let amountDetails_3: Amount = new Amount();
 
-        amountDetails.amount = s.totalCreditLine.amount;
-        amountDetails.currecncy = s.totalCreditLine.currecncy;
-        yodleeAccount.totalCreditLine = amountDetails;
+        amountDetails_3.amount = s.availableCredit.amount;
+        amountDetails_3.currecncy = s.availableCredit.currecncy;
+        yodleeAccount.availableCredit = amountDetails_3;
+
+        let amountDetails_4: Amount = new Amount();
+
+        amountDetails_4.amount = s.totalCashLimit.amount;
+        amountDetails_4.currecncy = s.totalCashLimit.currecncy;
+        yodleeAccount.totalCashLimit = amountDetails_4;
+
+        let amountDetails_5: Amount = new Amount();
+
+        amountDetails_5.amount = s.totalCreditLine.amount;
+        amountDetails_5.currecncy = s.totalCreditLine.currecncy;
+        yodleeAccount.totalCreditLine = amountDetails_5;
       }
       else if (yodleeAccount.container == "bank") {
         let amountDetails: Amount = new Amount();
@@ -89,7 +103,13 @@ export class YodleeAccountAggregator implements OnChanges {
 
     });
 
-    console.log("All Accounts: " + this.yodleeAccounts);
+    console.log("All Accounts: " + JSON.stringify(this.yodleeAccounts));
+
+    this.yodleeAccount_1 = this.yodleeAccounts[0];
+    this.yodleeAccount_2 = this.yodleeAccounts[1];
+    this.yodleeAccount_3 = this.yodleeAccounts[2];
+
+    console.log("All Accounts: " + JSON.stringify(this.yodleeAccounts));
   }
 
 }

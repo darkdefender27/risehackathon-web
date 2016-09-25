@@ -13,6 +13,9 @@ export class Auth {
       callbackURL: 'http://localhost:3000/',
       responseType: 'token'
     },
+    languageDictionary: {
+      title: "Supernova Chillers"
+    }
     /*additionalSignUpFields: [{
       name: "address",                              // required
       placeholder: "enter your address",            // required

@@ -4,6 +4,8 @@ import { Headers } from '@angular/http';
 import { YodleeService } from '../services/yodlee.service';
 import { UserProfile } from "../vo/userprofile.vo";
 import { YodleeLoginRequest } from "../vo/yodlee.login.request";
+import {NetWorth} from "../vo/netWorth.vo";
+import {Amount} from "../vo/amount.vo";
 
 @Component({
   selector: 'yodlee-accounts',
@@ -14,12 +16,15 @@ export class YodleeAccount {
 
   linked: boolean = false;
   userProfile = new UserProfile();
+  netWorth = new NetWorth();
+  responseReceived: boolean = false;
 
   @Output()
   userSessionUpdated = new EventEmitter();
 
   constructor(private yodleeService: YodleeService) {
     this.linked = false;
+    this.responseReceived = false;
     localStorage.removeItem('userSession');
   }
 
@@ -52,7 +57,26 @@ export class YodleeAccount {
 
     this.yodleeService.getNetWorth(headerParams)
       .then((result) => {
-        console.log("Net Worth Result retrieved: " + JSON.stringify(result));
+
+        let am_1 = new Amount();
+        am_1 = result.networth[0].asset.amount;
+        am_1= result.networth[0].asset.currency;
+        this.netWorth.asset = am_1;
+
+        let am_2 = new Amount();
+        am_2.amount = result.networth[0].liability.amount;
+        am_2.currecncy = result.networth[0].liability.currency;
+        this.netWorth.liability = am_2;
+
+        let am_3 = new Amount();
+        am_3.amount = result.networth[0].networth.amount;
+        am_3.currecncy = result.networth[0].networth.currency;
+        this.netWorth.networth = am_3;
+
+        this.netWorth.date = result.networth[0].date;
+        this.responseReceived = true;
+
+        console.log("NetWorth: " + JSON.stringify(this.netWorth));
       },
       (error) => {
         console.log("Error: " + error.status);

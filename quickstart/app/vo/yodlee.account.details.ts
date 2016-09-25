@@ -6,8 +6,9 @@ export class YodleeAccountDetails {
   accountNumber: string;
   accountStatus: string;
   availableCash: Amount;
-  availableCredit: Amount;
   balance: Amount;
+
+  availableCredit: Amount;
   totalCashLimit: Amount;
   totalCreditLine: Amount;
 }
