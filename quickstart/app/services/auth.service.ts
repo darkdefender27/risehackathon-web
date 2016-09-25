@@ -39,10 +39,7 @@ export class Auth {
           alert(error);
           return;
         }
-        console.log("[DEBUG] User profile retrieved successfully.");
         localStorage.setItem('profile', JSON.stringify(profile));
-        console.log("Profile Information: " + JSON.stringify(profile));
-
         this.userProfile = profile;
       });
 
