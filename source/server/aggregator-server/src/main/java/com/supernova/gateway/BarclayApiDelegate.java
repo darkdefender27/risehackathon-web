@@ -1,7 +1,5 @@
 package com.supernova.gateway;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -9,6 +7,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.ssl.TrustStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.*;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
@@ -78,11 +77,6 @@ public class BarclayApiDelegate {
 
     public String getInternalAccountDetails() throws UnirestException {
 
-         /*   HttpResponse<String> response = Unirest.get("https://api108567live.gateway.akana.com:443/accounts/1234/internal-accounts")
-                .header("accept", "application/json")
-                .header("cache-control", "no-cache")
-                .asString();
-*/
         String responseString = restTemplate.getForObject(
                 "https://api108567live.gateway.akana.com:443/accounts/1234/internal-accounts",
                 String.class);
@@ -90,14 +84,44 @@ public class BarclayApiDelegate {
         return responseString;
     }
 
+    public String getPayeeDetails() throws UnirestException {
+
+        String responseString = restTemplate.getForObject(
+                "https://api108567live.gateway.akana.com:443/accounts/1234/payees",
+                String.class);
+        LOG.info("Response:" + responseString);
+        return responseString;
+    }
+
+    public String getPingitTransactionsDetails() throws UnirestException {
+
+        String responseString = restTemplate.getForObject(
+                "https://api108567live.gateway.akana.com:443/accounts/1234/pingit",
+                String.class);
+        LOG.info("Response:" + responseString);
+        return responseString;
+    }
+
+
+    public String postPayeeDetails(String payeeDetail) throws UnirestException {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<String>(payeeDetail, headers);
+
+        ResponseEntity<String> responseString = restTemplate.exchange(
+                "https://api108567live.gateway.akana.com:443/accounts/1234/payees",
+                HttpMethod.POST,
+                entity,
+                String.class);
+        LOG.info("Response:" + responseString.getBody());
+        return responseString.getBody();
+
+    }
+
     public String getAccountDetails() throws UnirestException {
 
-       /* HttpResponse<String> response = Unirest.get("https://api108567live.gateway.akana.com:443/accounts/1234")
-                .header("accept", "application/json")
-                .header("cache-control", "no-cache")
-                .asString();
-        LOG.info("Response:" + response.getBody());
-*/
         String responseString = restTemplate.getForObject(
                 "https://api108567live.gateway.akana.com:443/accounts/1234",
                 String.class);
@@ -112,12 +136,7 @@ public class BarclayApiDelegate {
         LOG.info("Response:" + responseString);
         return responseString;
 
-       /* HttpResponse<String> response = Unirest.get("https://api108567live.gateway.akana.com:443/accounts/1234/transactions")
-                .header("accept", "appliXXcation/json")
-                .header("cache-control", "no-cache")
-                .asString();
-        LOG.info("Response:" + response.getBody());
-        return response.getBody(); */
+
     }
 
     /**
@@ -138,25 +157,28 @@ public class BarclayApiDelegate {
      */
     public String postTransactionDetails(String transactionDetails) throws UnirestException {
 
-        HttpResponse<String> response = Unirest.post("https://api108567live.gateway.akana.com:443/accounts/1234/transactions")
+        /*HttpResponse<String> response = Unirest.post("https://api108567live.gateway.akana.com:443/accounts/1234/transactions")
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
                 .header("cache-control", "no-cache")
                 // .body(" {\n\t\"amount\": {\n\t\"direction\": \"OUT\",\n\t\"value\": \"100.00\"\n\t},\n\t\"description\": \"New Fender Acoustic Guitar\",\n\t\"paymentDescriptor\": {\n\t\"paymentDescriptorType\": \"MERCHANT\",\n\t\"id\": \"97012293105189\"\n\t},\n\t\"metadata\": [\n\t{\n\t\"key\": \"RECEIPT\",\n\t\"value\": \"https://upload.wikimedia.org/wikipedia/common\"\n\t}\n\t],\n\t\"tags\": [\n\t\"RETAIL\"\n\t],\n\t\"notes\": null,\n\t\"paymentMethod\": \"CARD\"\n}")
                 .body(transactionDetails)
                 .asString();
-        return response.getBody();
+        return response.getBody();*/
 
 
-       /* HttpEntity<JSONObject> request = new HttpEntity<JSONObject>(new JSONObject(transactionDetails));
-        //request.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        ResponseEntity<String> responseStringObject = restTemplate.
-                exchange("https://api108567live.gateway.akana.com:443/accounts/1234/transactions",
-                        HttpMethod.POST,
-                        request,
-                        String.class);
-        LOG.info("Response:" + responseStringObject.getBody());
-        return responseStringObject.getBody();*/
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<String>(transactionDetails, headers);
+
+        ResponseEntity<String> responseString = restTemplate.exchange(
+                "https://api108567live.gateway.akana.com:443/accounts/1234/transactions",
+                HttpMethod.POST,
+                entity,
+                String.class);
+        LOG.info("Response:" + responseString.getBody());
+        return responseString.getBody();
 
         /**
          *
@@ -188,4 +210,19 @@ public class BarclayApiDelegate {
         return response.getBody();*/
     }
 
+    public String postP2PTRansaction(String p2pTransactionDetails) {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<String>(p2pTransactionDetails, headers);
+
+        ResponseEntity<String> responseString = restTemplate.exchange(
+                "https://api108567live.gateway.akana.com:443/accounts/1234/pingit",
+                HttpMethod.POST,
+                entity,
+                String.class);
+        LOG.info("Response:" + responseString.getBody());
+        return responseString.getBody();
+    }
 }

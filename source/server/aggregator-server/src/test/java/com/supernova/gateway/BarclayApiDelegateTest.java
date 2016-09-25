@@ -22,14 +22,52 @@ public class BarclayApiDelegateTest {
         Assert.assertTrue(response != null);
     }
 
-    @Test
+    //@Test
     public void getTransactionDetails() throws Exception {
         BarclayApiDelegate delegate = new BarclayApiDelegate();
         Object response = delegate.getTransactionDetails();
         Assert.assertTrue(response != null);
     }
 
-    @Test
+    //@Test
+    public void getPayeeDetails() throws Exception {
+        BarclayApiDelegate delegate = new BarclayApiDelegate();
+        Object response = delegate.getPayeeDetails();
+        Assert.assertTrue(response != null);
+    }
+
+    //@Test
+    public void getPingitDetails() throws Exception {
+        BarclayApiDelegate delegate = new BarclayApiDelegate();
+        Object response = delegate.getPingitTransactionsDetails();
+        Assert.assertTrue(response != null);
+    }
+
+    //@Test
+    public void postPayeeDetails() throws Exception {
+        BarclayApiDelegate delegate = new BarclayApiDelegate();
+        String payeeDetails = " {\n" +
+                "      \"name\": \"Rachel Green\",\n" +
+                "      \"sortCode\": \"885544\",\n" +
+                "      \"accountNo\": \"34569257\",\n" +
+                "      \"description\": \"Event payment2\"\n" +
+                "    }";
+        Object response = delegate.postPayeeDetails(payeeDetails);
+        Assert.assertTrue(response != null);
+    }
+
+    //@Test
+    public void postP2PTransactionDetails() throws Exception {
+        BarclayApiDelegate delegate = new BarclayApiDelegate();
+        String payeeDetails = "{\n" +
+                "\"name\": \"Hank Schrader\",\n" +
+                "\"phoneNo\": \"07533454643\"\n" +
+                "   }";
+        Object response = delegate.postP2PTRansaction(payeeDetails);
+        Assert.assertTrue(response != null);
+    }
+
+    //@Test
     public void postTransactionDetails() throws Exception {
         BarclayApiDelegate delegate = new BarclayApiDelegate();
         Object response = delegate.postTransactionDetails("{\n" +
