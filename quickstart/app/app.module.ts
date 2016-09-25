@@ -15,6 +15,7 @@ import { SplitPayment } from './components/splitpayment.component';
 import { YodleeAccount } from './components/yodlee.account.component';
 import { YodleeService } from './services/yodlee.service';
 import { YodleeAccountAggregator } from './components/yodlee.aggregate.component';
+import { OtpService } from "./services/otp.service";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { YodleeAccountAggregator } from './components/yodlee.aggregate.component
   providers: [
     appRoutingProviders,
     YodleeService,
+    OtpService,
     HttpService,
     AUTH_PROVIDERS
   ],

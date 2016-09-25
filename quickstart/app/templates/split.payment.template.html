@@ -1,0 +1,82 @@
+<div class="card small">
+
+  <div class="card-content">
+
+    <div>
+      <p class="grey-text text-darken-4" style="font-size: 25px;">Easy Transey!<i class="material-icons right">more_vert</i></p>
+    </div>
+
+
+    <span *ngIf="transactionCompleted">
+      <div class="row">
+        <i class="material-icons large center">done</i>
+        <h5>Transaction Id: #87184810 completed successfully! </h5>
+      </div>
+
+    </span>
+
+    <div align="center">
+    <form class="col s12" #transactionForm="ngForm" *ngIf="!otpSent && !transactionCompleted">
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="fromAccount" type="text" required name="fromAccount"
+                 [(ngModel)]="transactionDetails.fromAccount">
+          <label for="fromAccount">From </label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="toAccount" type="text" required name="toAccount"
+                 [(ngModel)]="transactionDetails.toAccount">
+          <label for="toAccount">Receiver </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="amount" type="text" required name="amount"
+                 [(ngModel)]="transactionDetails.amount">
+          <label for="amount">Amount</label>
+        </div>
+
+      </div>
+
+      <div class="row" align="center">
+        <button align="center" type="button" class="btn waves-effect waves-light"
+                (click)="sendOtpConfirmation()" [disabled]="!transactionForm.form.valid">
+          Submit
+        </button>
+      </div>
+
+    </form>
+    </div>
+
+    <div *ngIf="otpSent && !transactionCompleted" align="center">
+    <form class="col s6" #otpForm="ngForm">
+
+      <div class="row">
+        <div class="input-field col s6" align="center">
+          <input id="filledInOtp" type="text" required name="filledInOtp"
+                 [(ngModel)]="filledInOtp">
+          <label for="filledInOtp">Enter your OTP</label>
+        </div>
+      </div>
+
+      <div class="row" align="center">
+        <button align="center" type="button" class="btn waves-effect waves-light"
+                (click)="confirmOtp()"
+                [disabled]="!otpForm.form.valid">Submit</button>
+      </div>
+
+    </form>
+    </div>
+
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+  </div>
+
+</div>

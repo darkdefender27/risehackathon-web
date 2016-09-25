@@ -4,8 +4,8 @@ import { Headers } from '@angular/http';
 import { YodleeService } from '../services/yodlee.service';
 import { UserProfile } from "../vo/userprofile.vo";
 import { YodleeLoginRequest } from "../vo/yodlee.login.request";
-import {NetWorth} from "../vo/netWorth.vo";
-import {Amount} from "../vo/amount.vo";
+import { NetWorth } from "../vo/netWorth.vo";
+import { Amount } from "../vo/amount.vo";
 
 @Component({
   selector: 'yodlee-accounts',

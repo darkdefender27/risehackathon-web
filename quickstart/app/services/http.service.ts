@@ -50,6 +50,8 @@ export class HttpService {
       let options = new RequestOptions({headers: headers});
       var body:string = typeof (payLoad) == "string" ? payLoad : JSON.stringify(payLoad);
 
+      console.log("BODY: " + body);
+
       switch (requestType) {
         case HttpRequestType.GET:
           this.http.get(url, options)
