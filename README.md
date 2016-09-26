@@ -6,7 +6,7 @@ BCUS Rises Hackathon Sept'16
 Clone the remote repository into a local directory.
 
 ```sh
-$ git clone https://darkdefender27@bitbucket.org/acsakhare/risehackaton.git risehackaton
+$ git clone https://github.com/darkdefender27/risehackathon-web.git risehackathon-web
 $ cd risehackaton/
 ```
 
